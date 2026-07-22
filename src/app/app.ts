@@ -1,12 +1,17 @@
-import { Component, signal } from '@angular/core';
+import { Component, afterNextRender } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { initTheme, applyThemeEffect } from './utils/theme';
 
 @Component({
   selector: 'app-root',
   imports: [RouterOutlet],
-  templateUrl: './app.html',
-  styleUrl: './app.css'
+  template: `<router-outlet />`,
 })
 export class App {
-  protected readonly title = signal('openspec-app');
+  constructor() {
+    afterNextRender(() => {
+      initTheme();
+      applyThemeEffect();
+    });
+  }
 }

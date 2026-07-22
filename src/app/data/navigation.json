@@ -1,0 +1,7 @@
+[
+  { "label": "Qué es", "href": "/que-es" },
+  { "label": "Flujo", "href": "/flujo" },
+  { "label": "Ventajas", "href": "/ventajas" },
+  { "label": "Comandos", "href": "/comandos" },
+  { "label": "Ejemplo", "href": "/ejemplo" }
+]

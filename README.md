@@ -41,8 +41,17 @@ openspec-app/
 ├── .agents/skills/     # Skills auxiliares (13 instaladas)
 ├── assets/             # Contenido fuente / referencia visual
 │   └── ... (landing page OpenSpec)
-└── src/                # App Angular
-    └── app/
+    └── src/                # App Angular
+        └── app/
+            ├── components/     # Componentes reutilizables
+            │   ├── section/    # Secciones de contenido (hero, concept, etc.)
+            │   └── shared/     # Componentes compartidos (header, footer)
+            ├── interfaces/     # Interfaces TypeScript
+            ├── layouts/        # Layouts de página
+            ├── pages/          # Páginas (lazy-loaded)
+            ├── services/       # Servicios inyectables
+            ├── data/           # Datos estáticos JSON
+            └── utils/          # Utilidades (theme, etc.)
 ```
 
 ## Assets
