@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="es" class="theme-dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0b0f14" />
+    <title>OpenSpec · Flujos de trabajo dirigidos por especificaciones</title>
+    <meta
+      name="description"
+      content="Aprende a usar OpenSpec en tus flujos de trabajo con IA: ventajas, desventajas, comandos útiles y un ejemplo práctico paso a paso."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- ===== Header ===== -->
+    <header class="site-header" id="top">
+      <div class="container header-inner">
+        <a href="#top" class="brand" aria-label="OpenSpec inicio">
+          <span class="brand-mark" aria-hidden="true">&lt;/&gt;</span>
+          <span class="brand-name">OpenSpec</span>
+        </a>
+        <nav class="nav" aria-label="Navegación principal">
+          <a href="#que-es">Qué es</a>
+          <a href="#flujo">Flujo</a>
+          <a href="#ventajas">Ventajas</a>
+          <a href="#comandos">Comandos</a>
+          <a href="#ejemplo">Ejemplo</a>
+        </nav>
+        <div class="header-actions">
+          <button
+            id="theme-toggle"
+            class="icon-btn"
+            type="button"
+            aria-label="Cambiar tema claro/oscuro"
+          >
+            <span class="theme-icon" aria-hidden="true"></span>
+          </button>
+          <a
+            class="btn btn-ghost"
+            href="https://github.com/Fission-AI/OpenSpec"
+            target="_blank"
+            rel="noopener"
+            >GitHub</a
+          >
+        </div>
+        <button
+          id="menu-toggle"
+          class="menu-toggle"
+          type="button"
+          aria-label="Abrir menú"
+          aria-expanded="false"
+        >
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+      <div class="mobile-nav" id="mobile-nav" hidden>
+        <a href="#que-es">Qué es</a>
+        <a href="#flujo">Flujo</a>
+        <a href="#ventajas">Ventajas</a>
+        <a href="#comandos">Comandos</a>
+        <a href="#ejemplo">Ejemplo</a>
+      </div>
+    </header>
+
+    <main>
+      <!-- ===== Hero ===== -->
+      <section class="hero">
+        <div class="container hero-grid">
+          <div class="hero-copy">
+            <span class="pill">Spec-Driven Development</span>
+            <h1 class="hero-title text-balance">
+              Alinea a tu equipo y a la IA con
+              <span class="accent">especificaciones</span> antes de escribir
+              código
+            </h1>
+            <p class="hero-sub text-pretty">
+              OpenSpec convierte una idea en una especificación revisable que
+              guía a asistentes como Claude, Cursor o Copilot. Menos código
+              improvisado, más intención acordada.
+            </p>
+            <div class="hero-cta">
+              <a href="#flujo" class="btn btn-primary">Ver el flujo</a>
+              <a href="#comandos" class="btn btn-ghost">Comandos útiles</a>
+            </div>
+            <dl class="hero-stats">
+              <div>
+                <dt>4 fases</dt>
+                <dd>propose → apply → sync → archive</dd>
+              </div>
+              <div>
+                <dt>2 superficies</dt>
+                <dd>CLI + comandos en el chat de IA</dd>
+              </div>
+              <div>
+                <dt>1 fuente de verdad</dt>
+                <dd>la carpeta <code>openspec/</code></dd>
+              </div>
+            </dl>
+          </div>
+
+          <div class="hero-terminal" aria-hidden="false">
+            <div class="terminal">
+              <div class="terminal-bar">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="terminal-title">bash — openspec</span>
+              </div>
+              <pre class="terminal-body"><code><span class="c-prompt">$</span> npm install -g @fission-ai/openspec@latest
+<span class="c-prompt">$</span> openspec init
+<span class="c-ok">✔</span> Creada estructura <span class="c-path">openspec/</span>
+<span class="c-ok">✔</span> Configurado perfil de IA (.claude/, .cursor/)
+
+<span class="c-prompt">$</span> openspec list
+<span class="c-muted"># Cambios activos</span>
+  <span class="c-tag">add-user-auth</span>      <span class="c-muted">borrador</span>
+  <span class="c-tag">rate-limit-api</span>     <span class="c-muted">en progreso</span>
+
+<span class="c-prompt">$</span> openspec status
+<span class="c-ok">●</span> 2 cambios · 5 specs · todo validado</code></pre>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== Qué es ===== -->
+      <section id="que-es" class="section">
+        <div class="container">
+          <div class="section-head">
+            <span class="eyebrow">01 · Concepto</span>
+            <h2 class="text-balance">¿Qué es OpenSpec?</h2>
+            <p class="section-lead text-pretty">
+              Es una herramienta de <strong>desarrollo dirigido por
+              especificaciones</strong>. En lugar de pedirle a la IA que
+              programe directamente, primero acuerdas <em>qué</em> se va a
+              construir en un documento versionado. Ese documento es el contrato
+              que humanos y agentes siguen.
+            </p>
+          </div>
+
+          <div class="cards-3">
+            <article class="card">
+              <div class="card-icon" aria-hidden="true">📋</div>
+              <h3>Specs como fuente de verdad</h3>
+              <p>
+                La carpeta <code>openspec/specs/</code> describe el
+                comportamiento actual del sistema. Todo cambio parte de ahí.
+              </p>
+            </article>
+            <article class="card">
+              <div class="card-icon" aria-hidden="true">🔀</div>
+              <h3>Cambios propuestos</h3>
+              <p>
+                Cada nueva funcionalidad vive en
+                <code>openspec/changes/</code> como una propuesta revisable
+                antes de tocar el código.
+              </p>
+            </article>
+            <article class="card">
+              <div class="card-icon" aria-hidden="true">🤖</div>
+              <h3>Pensado para agentes</h3>
+              <p>
+                Genera instrucciones para Claude, Cursor y otros, con salida
+                <code>--json</code> para integrarse en pipelines.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== Flujo ===== -->
+      <section id="flujo" class="section section-alt">
+        <div class="container">
+          <div class="section-head">
+            <span class="eyebrow">02 · Workflow</span>
+            <h2 class="text-balance">El flujo de trabajo</h2>
+            <p class="section-lead text-pretty">
+              El camino por defecto tiene cuatro fases. Las de terminal
+              (<code>openspec</code>) gestionan el estado; las del chat
+              (<code>/opsx:</code>) ejecutan el trabajo con la IA.
+            </p>
+          </div>
+
+          <ol class="flow">
+            <li class="flow-step">
+              <span class="flow-num">1</span>
+              <h3><code>/opsx:propose</code></h3>
+              <p>
+                Describes la intención y OpenSpec redacta una propuesta de
+                cambio con requisitos y specs afectadas.
+              </p>
+            </li>
+            <li class="flow-step">
+              <span class="flow-num">2</span>
+              <h3><code>/opsx:apply</code></h3>
+              <p>
+                La IA implementa el código siguiendo la propuesta aprobada,
+                fase por fase.
+              </p>
+            </li>
+            <li class="flow-step">
+              <span class="flow-num">3</span>
+              <h3><code>/opsx:sync</code></h3>
+              <p>
+                Se reconcilian las specs con lo realmente construido para que la
+                fuente de verdad quede al día.
+              </p>
+            </li>
+            <li class="flow-step">
+              <span class="flow-num">4</span>
+              <h3><code>/opsx:archive</code></h3>
+              <p>
+                El cambio completado se archiva y las specs quedan como el nuevo
+                estado base del proyecto.
+              </p>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- ===== Ventajas / Desventajas ===== -->
+      <section id="ventajas" class="section">
+        <div class="container">
+          <div class="section-head">
+            <span class="eyebrow">03 · Balance</span>
+            <h2 class="text-balance">Ventajas y desventajas</h2>
+            <p class="section-lead text-pretty">
+              Ninguna metodología es gratis. Esto es lo que ganas y lo que
+              cuesta al adoptar OpenSpec.
+            </p>
+          </div>
+
+          <div class="pros-cons">
+            <div class="pc-col pc-pros">
+              <h3><span class="pc-badge pc-badge-good">+</span> Ventajas</h3>
+              <ul>
+                <li>Intención acordada <strong>antes</strong> de escribir código.</li>
+                <li>Menos alucinaciones: la IA trabaja contra una spec concreta.</li>
+                <li>Historial revisable de decisiones en control de versiones.</li>
+                <li>Onboarding más rápido: las specs documentan el sistema.</li>
+                <li>Salida <code>--json</code> para automatizar en CI/CD.</li>
+                <li>Independiente del asistente (Claude, Cursor, Copilot…).</li>
+              </ul>
+            </div>
+            <div class="pc-col pc-cons">
+              <h3><span class="pc-badge pc-badge-bad">−</span> Desventajas</h3>
+              <ul>
+                <li>Curva de aprendizaje y disciplina inicial de proceso.</li>
+                <li>Overhead para cambios triviales o prototipos rápidos.</li>
+                <li>Las specs desactualizadas engañan si no ejecutas <code>sync</code>.</li>
+                <li>Requiere un asistente de IA compatible para brillar.</li>
+                <li>Herramienta joven: API y comandos aún evolucionan.</li>
+                <li>Otro artefacto más que mantener en el repositorio.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== Comandos ===== -->
+      <section id="comandos" class="section section-alt">
+        <div class="container">
+          <div class="section-head">
+            <span class="eyebrow">04 · Referencia</span>
+            <h2 class="text-balance">Comandos útiles</h2>
+            <p class="section-lead text-pretty">
+              Filtra por superficie. Los comandos de <strong>terminal</strong>
+              gestionan el proyecto; los de <strong>chat</strong> se escriben en
+              tu asistente de IA.
+            </p>
+          </div>
+
+          <div class="tabs" role="tablist" aria-label="Tipos de comandos">
+            <button class="tab is-active" role="tab" aria-selected="true" data-filter="all">
+              Todos
+            </button>
+            <button class="tab" role="tab" aria-selected="false" data-filter="cli">
+              Terminal (openspec)
+            </button>
+            <button class="tab" role="tab" aria-selected="false" data-filter="chat">
+              Chat (/opsx:)
+            </button>
+          </div>
+
+          <div class="cmd-list" id="cmd-list"></div>
+        </div>
+      </section>
+
+      <!-- ===== Ejemplo ===== -->
+      <section id="ejemplo" class="section">
+        <div class="container">
+          <div class="section-head">
+            <span class="eyebrow">05 · En la práctica</span>
+            <h2 class="text-balance">Ejemplo: añadir autenticación</h2>
+            <p class="section-lead text-pretty">
+              Un recorrido real: agregar login por email a una API. Sigue los
+              pasos y observa cómo cambian los artefactos.
+            </p>
+          </div>
+
+          <div class="example-grid">
+            <div class="example-steps">
+              <button class="ex-step is-active" data-step="0">
+                <span class="ex-num">1</span>
+                <span>
+                  <strong>Proponer el cambio</strong>
+                  <em>Describes la intención en el chat</em>
+                </span>
+              </button>
+              <button class="ex-step" data-step="1">
+                <span class="ex-num">2</span>
+                <span>
+                  <strong>Revisar la propuesta</strong>
+                  <em>OpenSpec genera la spec del cambio</em>
+                </span>
+              </button>
+              <button class="ex-step" data-step="2">
+                <span class="ex-num">3</span>
+                <span>
+                  <strong>Aplicar e implementar</strong>
+                  <em>La IA escribe el código</em>
+                </span>
+              </button>
+              <button class="ex-step" data-step="3">
+                <span class="ex-num">4</span>
+                <span>
+                  <strong>Sincronizar y archivar</strong>
+                  <em>Las specs quedan como base</em>
+                </span>
+              </button>
+            </div>
+
+            <div class="example-panel">
+              <div class="terminal">
+                <div class="terminal-bar">
+                  <span class="dot red"></span>
+                  <span class="dot yellow"></span>
+                  <span class="dot green"></span>
+                  <span class="terminal-title" id="ex-title">Paso 1</span>
+                </div>
+                <pre class="terminal-body"><code id="ex-code"></code></pre>
+              </div>
+              <p class="example-note" id="ex-note"></p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== CTA final ===== -->
+      <section class="cta">
+        <div class="container cta-inner">
+          <h2 class="text-balance">Empieza con una sola línea</h2>
+          <p class="text-pretty">
+            Instala OpenSpec e inicializa tu primer proyecto dirigido por
+            especificaciones hoy mismo.
+          </p>
+          <div class="cta-code">
+            <code id="cta-cmd">npm install -g @fission-ai/openspec@latest &amp;&amp; openspec init</code>
+            <button class="btn btn-primary" id="copy-cta" type="button">
+              Copiar
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div class="brand">
+          <span class="brand-mark" aria-hidden="true">&lt;/&gt;</span>
+          <span class="brand-name">OpenSpec</span>
+        </div>
+        <p class="footer-note">
+          Página informativa no oficial · Hecha con HTML, CSS y JS puro.
+        </p>
+        <a href="#top" class="footer-top">Volver arriba ↑</a>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
