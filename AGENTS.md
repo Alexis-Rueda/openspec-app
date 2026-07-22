@@ -1,5 +1,25 @@
 
-You are an expert in TypeScript, Angular, and scalable web application development. You write functional, maintainable, performant, and accessible code following Angular and TypeScript best practices.
+## Contexto del proyecto
+
+App Angular que funciona como guía interactiva de OpenSpec. Se construye usando el mismo flujo OpenSpec (dogfooding).
+
+### Reglas de arquitectura
+
+- **No modificar `assets/` directamente**. Es contenido fuente de referencia.
+- Assets de la app Angular van en `public/` o `src/assets/` si se crea.
+- Todo cambio significativo debe pasar por el ciclo OpenSpec (propose → apply).
+- Los componentes nuevos deben ser standalone (default en Angular v22+) y lazy-loaded.
+- Las especs viven en `openspec/specs/`, los changes en `openspec/changes/`.
+
+### Skills disponibles
+
+- `angular-developer` — Generar código Angular y arquitectura
+- `vitest` — Tests unitarios
+- `accessibility` — Auditoría WCAG / AXE
+- `seo` — Meta tags, datos estructurados
+- `frontend-design` — UI de alta calidad
+- `typescript-advanced-types` — Tipos complejos
+- `nodejs-best-practices` — Patrones backend si aplica
 
 ## TypeScript Best Practices
 

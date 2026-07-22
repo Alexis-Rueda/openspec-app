@@ -1,59 +1,62 @@
 # OpenspecApp
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 22.0.6.
+Guía interactiva de OpenSpec construida **con OpenSpec** (dogfooding). App Angular que documenta el flujo spec-driven usando el mismo flujo spec-driven para crearse.
 
-## Development server
+## Stack
 
-To start a local development server, run:
+| Capa | Tecnología |
+|------|-----------|
+| Framework | Angular v22 |
+| Lenguaje | TypeScript v6 |
+| Testing | Vitest v4 |
+| Metodología | OpenSpec spec-driven |
+| AI assistant | OpenCode AI + MCP Angular CLI |
 
-```bash
-ng serve
+## Workflow OpenSpec
+
+El proyecto sigue el ciclo spec-driven. Los comandos disponibles via OpenCode AI:
+
+| Comando | Propósito |
+|---------|-----------|
+| `/opsx:explore` | Explorar ideas, investigar problemas, clarificar requisitos |
+| `/opsx:propose` | Crear propuesta completa con diseño, especs y tareas |
+| `/opsx:apply` | Implementar tareas de un change |
+| `/opsx:sync` | Sincronizar delta specs a main specs |
+| `/opsx:update` | Revisar artefactos de planificación |
+| `/opsx:archive` | Archivar un change completado |
+
+Ciclo típico: **explore → propose → apply → sync → archive**
+
+## Estructura del proyecto
+
+```
+openspec-app/
+├── openspec/           # Artefactos OpenSpec
+│   ├── config.yaml     # Configuración del proyecto
+│   ├── specs/          # Especificaciones principales
+│   └── changes/        # Changes activos y archive
+├── .opencode/          # Config OpenCode AI + skills
+│   ├── commands/       # Comandos opsx
+│   └── skills/         # Skills openspec-*
+├── .agents/skills/     # Skills auxiliares (13 instaladas)
+├── assets/             # Contenido fuente / referencia visual
+│   └── ... (landing page OpenSpec)
+└── src/                # App Angular
+    └── app/
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## Assets
 
-## Code scaffolding
+La carpeta `assets/` contiene una landing page estática sobre OpenSpec (HTML+CSS+JS + Tailwind). Sirve como **contenido fuente** y referencia de diseño para la app Angular. No está incluida en el build de Angular.
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## Comandos
 
 ```bash
-ng generate --help
+ng serve        # Servidor de desarrollo
+ng test         # Tests unitarios (Vitest)
+ng build        # Build producción
 ```
 
-## Building
+## Skills instaladas
 
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Angular developer, Vitest, Accessibility, SEO, Frontend Design, TypeScript advanced types, Node.js best practices, y más (ver `skills-lock.json`).
