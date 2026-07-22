@@ -11,6 +11,17 @@ App Angular que funciona como guía interactiva de OpenSpec. Se construye usando
 - Los componentes nuevos deben ser standalone (default en Angular v22+) y lazy-loaded.
 - Las especs viven en `openspec/specs/`, los changes en `openspec/changes/`.
 
+### Git Workflow
+
+- **Al hacer apply de un change OpenSpec, crear siempre una nueva rama git** antes de implementar:
+  ```bash
+  git checkout -b <nombre-del-change>
+  ```
+- La rama se nombra igual que el change (ej: `scaffold-base`, `hero-section`).
+- Al completar el apply y antes de archive, crear un commit con los cambios.
+- La rama se mergea a `main` al finalizar el ciclo completo (apply → sync → archive).
+- No trabajar directamente en `main` para cambios OpenSpec.
+
 ### Skills disponibles
 
 - `angular-developer` — Generar código Angular y arquitectura
