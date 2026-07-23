@@ -14,10 +14,10 @@ Secuencia de cambios planificados para construir la guía interactiva de OpenSpe
 ## Changes
 
 ```
-   1. ── [x] scaffold-base
+   1. ── [X] scaffold-base
    2. ── [X] hero-section + terminal
    3. ── [X] concept-section + card
-   4. ── [] flow-section
+   4. ── [X] flow-section
    5. ── [] pros-cons-section
    6. ── [] commands-section
    7. ── [] example-page (lazy route)
