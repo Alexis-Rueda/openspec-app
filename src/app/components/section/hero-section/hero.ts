@@ -1,0 +1,45 @@
+import { Component, inject } from '@angular/core';
+import { ContentService } from '../../../services/content.service';
+import { Terminal } from '../../shared/terminal/terminal';
+
+@Component({
+  selector: 'app-hero-section',
+  imports: [Terminal],
+  template: `
+    <section class="os-hero">
+      <div class="os-hero-grid">
+        <div class="os-hero-content">
+          <span class="os-pill">{{ hero().pill }}</span>
+          <h1 class="os-hero-title os-text-balance" [innerHTML]="hero().title"></h1>
+          <p class="os-hero-sub os-text-pretty">{{ hero().subtitle }}</p>
+          <div class="os-hero-cta">
+            @for (btn of hero().ctaButtons; track $index) {
+              <a
+                [href]="btn.href"
+                [class.os-btn-primary]="$index === 0"
+                [class.os-btn-ghost]="$index !== 0"
+                class="os-btn"
+              >{{ btn.label }}</a>
+            }
+          </div>
+          <dl class="os-hero-stats">
+            @for (stat of hero().stats; track $index) {
+              <div class="os-hero-stat">
+                <dt>{{ stat.dt }}</dt>
+                <dd [innerHTML]="stat.dd"></dd>
+              </div>
+            }
+          </dl>
+        </div>
+        <div class="os-hero-terminal">
+          <app-terminal [lines]="hero().terminalLines" [title]="hero().terminalTitle" />
+        </div>
+      </div>
+    </section>
+  `,
+  styleUrls: ['./hero.css'],
+})
+export class HeroSection {
+  private contentService = inject(ContentService);
+  protected hero = this.contentService.getHero();
+}

@@ -1,0 +1,89 @@
+:host {
+  display: block;
+}
+
+.os-terminal {
+  background: var(--os-bg-elev);
+  border: 1px solid var(--os-border);
+  border-radius: var(--os-radius);
+  overflow: hidden;
+  box-shadow: var(--os-shadow);
+}
+
+.os-terminal-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  background: var(--os-bg-alt);
+  border-bottom: 1px solid var(--os-border);
+}
+
+.os-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.os-dot-red { background: #ff5f56; }
+.os-dot-yellow { background: #ffbd2e; }
+.os-dot-green { background: #27c93f; }
+
+.os-terminal-title {
+  margin-left: 10px;
+  font-family: var(--os-font-mono);
+  font-size: 0.8rem;
+  color: var(--os-fg-dim);
+}
+
+.os-terminal-body {
+  margin: 0;
+  padding: 20px;
+  font-family: var(--os-font-mono);
+  font-size: 0.85rem;
+  line-height: 1.7;
+  color: var(--os-fg);
+  overflow-x: auto;
+  white-space: pre;
+}
+
+.os-terminal-body code {
+  background: none;
+  color: inherit;
+  padding: 0;
+  font-size: inherit;
+}
+
+.os-terminal-line {
+  display: block;
+  white-space: pre;
+}
+
+:host ::ng-deep .c-prompt {
+  color: var(--os-accent);
+  font-weight: 600;
+}
+
+:host ::ng-deep .c-ok {
+  color: var(--os-accent);
+}
+
+:host ::ng-deep .c-muted {
+  color: var(--os-fg-dim);
+}
+
+:host ::ng-deep .c-path {
+  color: #7dd3fc;
+}
+
+:host ::ng-deep .c-tag {
+  color: #fbbf24;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .os-terminal {
+    box-shadow: none;
+  }
+}

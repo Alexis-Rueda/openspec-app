@@ -1,0 +1,29 @@
+{
+  "pill": "Spec-Driven Development",
+  "title": "Alinea a tu equipo y a la IA con <span class=\"os-accent\">especificaciones</span> antes de escribir código",
+  "subtitle": "OpenSpec convierte una idea en una especificación revisable que guía a asistentes como Claude, Cursor o Copilot. Menos código improvisado, más intención acordada.",
+  "ctaButtons": [
+    { "label": "Ver el flujo", "href": "#flujo" },
+    { "label": "Comandos útiles", "href": "#comandos" }
+  ],
+  "stats": [
+    { "dt": "4 fases", "dd": "propose → apply → sync → archive" },
+    { "dt": "2 superficies", "dd": "CLI + comandos en el chat de IA" },
+    { "dt": "1 fuente de verdad", "dd": "la carpeta <code class=\"os-code\">openspec/</code>" }
+  ],
+  "terminalTitle": "bash — openspec",
+  "terminalLines": [
+    { "text": "<span class=\"c-prompt\">$</span> npm install -g @fission-ai/openspec@latest" },
+    { "text": "<span class=\"c-prompt\">$</span> openspec init" },
+    { "text": "<span class=\"c-ok\">✔</span> Creada estructura <span class=\"c-path\">openspec/</span>" },
+    { "text": "<span class=\"c-ok\">✔</span> Configurado perfil de IA (.claude/, .cursor/)" },
+    { "text": "" },
+    { "text": "<span class=\"c-prompt\">$</span> openspec list" },
+    { "text": "<span class=\"c-muted\"># Cambios activos</span>" },
+    { "text": "  <span class=\"c-tag\">add-user-auth</span>      <span class=\"c-muted\">borrador</span>" },
+    { "text": "  <span class=\"c-tag\">rate-limit-api</span>     <span class=\"c-muted\">en progreso</span>" },
+    { "text": "" },
+    { "text": "<span class=\"c-prompt\">$</span> openspec status" },
+    { "text": "<span class=\"c-ok\">●</span> 2 cambios · 5 specs · todo validado" }
+  ]
+}

@@ -1,15 +1,11 @@
 import { Component } from '@angular/core';
+import { HeroSection } from '../../components/section/hero-section/hero';
 
 @Component({
   selector: 'app-home-page',
+  imports: [HeroSection],
   template: `
-    <section class="os-section">
-      <div class="os-container">
-        <h1>OpenSpec</h1>
-        <p>Flujos de trabajo dirigidos por especificaciones</p>
-        <p class="os-text-balance">Coming soon</p>
-      </div>
-    </section>
+    <app-hero-section />
   `,
 })
 export class HomePage {}

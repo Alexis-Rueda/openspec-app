@@ -1,0 +1,131 @@
+:host {
+  display: block;
+}
+
+.os-hero {
+  padding: 72px 0 40px;
+  background: radial-gradient(
+    900px 500px at 80% -10%,
+    color-mix(in srgb, var(--os-accent) 14%, transparent),
+    transparent 70%
+  );
+}
+
+.os-hero-grid {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 48px;
+  align-items: center;
+  max-width: var(--os-maxw);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.os-hero-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.os-pill {
+  display: inline-block;
+  font-family: var(--os-font-mono);
+  font-size: 0.78rem;
+  color: var(--os-accent);
+  background: color-mix(in srgb, var(--os-accent) 12%, transparent);
+  border: 1px solid color-mix(in srgb, var(--os-accent) 30%, transparent);
+  padding: 6px 14px;
+  border-radius: 999px;
+  margin-bottom: 20px;
+  width: fit-content;
+}
+
+.os-hero-title {
+  font-size: clamp(2.1rem, 5vw, 3.4rem);
+  line-height: 1.1;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  margin: 0 0 20px;
+  color: var(--os-fg);
+}
+
+.os-hero-sub {
+  font-size: 1.15rem;
+  color: var(--os-fg-muted);
+  max-width: 46ch;
+  margin: 0 0 30px;
+  text-wrap: pretty;
+}
+
+.os-hero-cta {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+
+.os-hero-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  border-top: 1px solid var(--os-border);
+  padding: 26px 0 0;
+  margin: 0;
+}
+
+.os-hero-stat {
+  display: flex;
+  flex-direction: column;
+}
+
+.os-hero-stat dt {
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--os-fg);
+  margin-bottom: 4px;
+}
+
+.os-hero-stat dd {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--os-fg-dim);
+}
+
+.os-hero-terminal {
+  min-width: 0;
+}
+
+@media (max-width: 900px) {
+  .os-hero {
+    padding: 48px 0;
+  }
+
+  .os-hero-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .os-hero-title {
+    font-size: 2.1rem;
+  }
+
+  .os-hero-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .os-hero-cta {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 620px) {
+  .os-hero-stats {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .os-hero {
+    background: none;
+  }
+}
