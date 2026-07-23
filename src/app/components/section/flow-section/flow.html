@@ -1,0 +1,19 @@
+<section class="os-section os-section-alt">
+  <div class="os-container">
+    <div class="flow-header">
+      <span class="flow-eyebrow">{{ workflowData().eyebrow }}</span>
+      <h2 class="flow-title os-text-balance">{{ workflowData().title }}</h2>
+      <p class="flow-lead os-text-pretty" [innerHTML]="workflowData().lead"></p>
+    </div>
+    <div class="flow-grid">
+      @for (step of workflowData().steps; track $index) {
+        <div class="flow-card" [style.--step-index]="$index">
+          <span class="flow-badge">{{ $index + 1 }}</span>
+          <code class="flow-command">{{ step.command }}</code>
+          <h3 class="flow-card-title">{{ step.title }}</h3>
+          <p class="flow-card-desc">{{ step.description }}</p>
+        </div>
+      }
+    </div>
+  </div>
+</section>

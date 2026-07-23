@@ -1,0 +1,27 @@
+{
+  "eyebrow": "02 · Workflow",
+  "title": "El flujo de trabajo",
+  "lead": "El camino por defecto tiene cuatro fases. Las de terminal (<code>openspec</code>) gestionan el estado; las del chat (<code>/opsx:</code>) ejecutan el trabajo con la IA.",
+  "steps": [
+    {
+      "command": "/opsx:propose",
+      "title": "Propose",
+      "description": "Describes la intención y OpenSpec redacta una propuesta de cambio con requisitos y specs afectadas."
+    },
+    {
+      "command": "/opsx:apply",
+      "title": "Apply",
+      "description": "La IA implementa el código siguiendo la propuesta aprobada, fase por fase."
+    },
+    {
+      "command": "/opsx:sync",
+      "title": "Sync",
+      "description": "Se reconcilian las specs con lo realmente construido para que la fuente de verdad quede al día."
+    },
+    {
+      "command": "/opsx:archive",
+      "title": "Archive",
+      "description": "El cambio completado se archiva y las specs quedan como el nuevo estado base del proyecto."
+    }
+  ]
+}

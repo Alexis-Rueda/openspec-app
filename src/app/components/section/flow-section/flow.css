@@ -1,0 +1,158 @@
+:host {
+  display: block;
+}
+
+.flow-header {
+  text-align: center;
+  margin-bottom: 52px;
+}
+
+.flow-eyebrow {
+  display: inline-block;
+  font-family: var(--os-font-mono);
+  font-size: 0.82rem;
+  color: var(--os-accent);
+  background: color-mix(in srgb, var(--os-accent) 12%, transparent);
+  border: 1px solid color-mix(in srgb, var(--os-accent) 30%, transparent);
+  padding: 6px 16px;
+  border-radius: 999px;
+  margin-bottom: 16px;
+}
+
+.flow-title {
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  margin: 0 0 16px;
+  color: var(--os-fg);
+}
+
+.flow-lead {
+  font-size: 1.1rem;
+  color: var(--os-fg-muted);
+  max-width: 68ch;
+  margin: 0 auto;
+  text-wrap: pretty;
+}
+
+:host ::ng-deep .flow-lead code {
+  font-family: var(--os-font-mono);
+  font-size: 0.9em;
+  background: color-mix(in srgb, var(--os-accent) 12%, transparent);
+  color: var(--os-accent);
+  padding: 2px 6px;
+  border-radius: 6px;
+}
+
+.flow-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  position: relative;
+}
+
+.flow-card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background: var(--os-surface);
+  border: 1px solid var(--os-border);
+  border-radius: var(--os-radius);
+  padding: 24px;
+  position: relative;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.flow-card::after {
+  content: "→";
+  position: absolute;
+  left: calc(100% + 6px);
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.4rem;
+  color: var(--os-accent);
+  pointer-events: none;
+}
+
+.flow-card:last-child::after {
+  content: none;
+}
+
+.flow-card:hover {
+  transform: translateY(-4px);
+  border-color: color-mix(in srgb, var(--os-accent) 45%, var(--os-border));
+}
+
+.flow-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--os-accent) 12%, transparent);
+  color: var(--os-accent);
+  font-family: var(--os-font-mono);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.flow-command {
+  font-family: var(--os-font-mono);
+  font-size: 0.78rem;
+  background: color-mix(in srgb, var(--os-accent) 8%, transparent);
+  color: var(--os-accent);
+  padding: 3px 8px;
+  border-radius: 6px;
+  width: fit-content;
+}
+
+.flow-card-title {
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 0;
+  color: var(--os-fg);
+}
+
+.flow-card-desc {
+  font-size: 0.82rem;
+  color: var(--os-fg-muted);
+  margin: 0;
+  line-height: 1.5;
+}
+
+@media (max-width: 900px) {
+  .flow-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .flow-card::after {
+    content: "↓";
+    left: 50%;
+    top: calc(100% + 8px);
+    transform: translateX(-50%);
+  }
+
+  .flow-card:last-child::after {
+    content: none;
+  }
+
+  .flow-header {
+    margin-bottom: 36px;
+  }
+
+  .flow-title {
+    font-size: 1.8rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .flow-card {
+    transition: none;
+  }
+
+  .flow-card:hover {
+    transform: none;
+  }
+}
