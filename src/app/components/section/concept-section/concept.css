@@ -1,0 +1,73 @@
+:host {
+  display: block;
+}
+
+.concept-header {
+  text-align: center;
+  margin-bottom: 52px;
+}
+
+.concept-eyebrow {
+  display: inline-block;
+  font-family: var(--os-font-mono);
+  font-size: 0.82rem;
+  color: var(--os-accent);
+  background: color-mix(in srgb, var(--os-accent) 12%, transparent);
+  border: 1px solid color-mix(in srgb, var(--os-accent) 30%, transparent);
+  padding: 6px 16px;
+  border-radius: 999px;
+  margin-bottom: 16px;
+}
+
+.concept-title {
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  margin: 0 0 16px;
+  color: var(--os-fg);
+}
+
+.concept-lead {
+  font-size: 1.1rem;
+  color: var(--os-fg-muted);
+  max-width: 68ch;
+  margin: 0 auto;
+  text-wrap: pretty;
+}
+
+:host ::ng-deep .concept-lead strong {
+  color: var(--os-fg);
+  font-weight: 600;
+}
+
+:host ::ng-deep .concept-lead em {
+  font-style: italic;
+  color: var(--os-fg);
+}
+
+.concept-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+@media (max-width: 900px) {
+  .concept-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .concept-header {
+    margin-bottom: 36px;
+  }
+
+  .concept-title {
+    font-size: 1.8rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .concept-header {
+    text-align: center;
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "eyebrow": "01 · Concepto",
+  "title": "¿Qué es OpenSpec?",
+  "lead": "Es una herramienta de <strong>desarrollo dirigido por especificaciones</strong>. En lugar de pedirle a la IA que programe directamente, primero acuerdas <em>qué</em> se va a construir en un documento versionado. Ese documento es el contrato que humanos y agentes siguen.",
+  "cards": [
+    {
+      "icon": "📋",
+      "title": "Specs como fuente de verdad",
+      "description": "La carpeta <code>openspec/specs/</code> describe el comportamiento actual del sistema. Todo cambio parte de ahí."
+    },
+    {
+      "icon": "🔀",
+      "title": "Cambios propuestos",
+      "description": "Cada nueva funcionalidad vive en <code>openspec/changes/</code> como una propuesta revisable antes de tocar el código."
+    },
+    {
+      "icon": "🤖",
+      "title": "Pensado para agentes",
+      "description": "Genera instrucciones para Claude, Cursor y otros, con salida <code>--json</code> para integrarse en pipelines."
+    }
+  ]
+}
