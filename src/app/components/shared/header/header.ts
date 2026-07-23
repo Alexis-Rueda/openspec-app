@@ -6,41 +6,7 @@ import { theme, toggleTheme } from '../../../utils/theme';
 @Component({
   selector: 'app-header',
   imports: [RouterLink],
-  template: `
-    <header class="os-header">
-      <div class="os-container os-header-inner">
-        <a class="os-brand" routerLink="/">
-          <span class="os-brand-mark">&lt;/&gt;</span>
-          <span class="os-brand-name">OpenSpec</span>
-        </a>
-        <nav class="os-nav">
-          @for (link of navLinks(); track link.href) {
-            <a [routerLink]="link.href">{{ link.label }}</a>
-          }
-        </nav>
-        <div class="os-header-actions">
-          <button class="os-icon-btn" (click)="toggleTheme()" [attr.aria-label]="'Cambiar a tema ' + (theme() === 'dark' ? 'claro' : 'oscuro')">
-            <span class="os-theme-icon"></span>
-          </button>
-          <a class="os-btn os-btn-ghost" href="https://github.com/Fission-AI/OpenSpec" target="_blank" rel="noopener">
-            GitHub
-          </a>
-        </div>
-        <button class="os-menu-toggle" (click)="toggleMobileNav()" aria-label="Menú de navegación">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-      </div>
-      @if (isMobileNavOpen()) {
-        <div class="os-mobile-nav">
-          @for (link of navLinks(); track link.href) {
-            <a [routerLink]="link.href" (click)="closeMobileNav()">{{ link.label }}</a>
-          }
-        </div>
-      }
-    </header>
-  `,
+  templateUrl: './header.html',
   styles: [`
     :host { display: block; }
   `]

@@ -26,11 +26,8 @@ App Angular que funciona como guía interactiva de OpenSpec. Se construye usando
 
 - `angular-developer` — Generar código Angular y arquitectura
 - `vitest` — Tests unitarios
-- `accessibility` — Auditoría WCAG / AXE
-- `seo` — Meta tags, datos estructurados
 - `frontend-design` — UI de alta calidad
 - `typescript-advanced-types` — Tipos complejos
-- `nodejs-best-practices` — Patrones backend si aplica
 
 ## TypeScript Best Practices
 
@@ -56,11 +53,12 @@ App Angular que funciona como guía interactiva de OpenSpec. Se construye usando
 
 ### Components
 
+- **IMPORTANTE:** Siempre usar archivos separados `.component.html` / `.component.css` cuando template >3 líneas o styles >3 líneas. NO usar inline para bloques grandes.
 - Keep components small and focused on a single responsibility
 - Use `input()` and `output()` functions instead of decorators
 - Use `computed()` for derived state
-- Use inline template for 3 lines or fewer; create `.component.html` for larger templates
-- Use inline styles for 3 lines or fewer; create `.component.css` for larger styles
+- Inline template solo para 3 líneas o menos; caso contrario crear `.component.html`
+- Inline styles solo para 3 líneas o menos; caso contrario crear `.component.css`
 - Prefer Signal Forms (`@angular/forms/signals`) for new forms. They are stable in Angular v22+ and provide signal-based state, type-safe field access, and schema-based validation
 - When not using Signal Forms, prefer Reactive forms instead of Template-driven ones
 - Do NOT use `ngClass`, use `class` bindings instead

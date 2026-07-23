@@ -6,22 +6,7 @@ import { Footer } from '../../components/shared/footer/footer';
 @Component({
   selector: 'app-main-layout',
   imports: [RouterOutlet, Header, Footer],
-  template: `
-    <app-header />
-    <main>
-      <router-outlet />
-    </main>
-    <app-footer />
-  `,
-  styles: [`
-    :host {
-      display: flex;
-      flex-direction: column;
-      min-height: 100dvh;
-    }
-    main {
-      flex: 1;
-    }
-  `]
+  templateUrl: './main-layout.html',
+  styleUrls: ['./main-layout.css']
 })
 export class MainLayout {}
