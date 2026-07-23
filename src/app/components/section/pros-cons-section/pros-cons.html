@@ -1,0 +1,27 @@
+<section class="os-section os-section-alt">
+  <div class="os-container">
+    <div class="section-head">
+      <span class="pc-eyebrow">{{ data().eyebrow }}</span>
+      <h2 class="pc-title os-text-balance">{{ data().title }}</h2>
+      <p class="pc-lead os-text-pretty" [innerHTML]="data().lead"></p>
+    </div>
+    <div class="pros-cons">
+      <div class="pc-col pc-pros">
+        <h3><span class="pc-badge pc-badge-good" aria-hidden="true">+</span> Ventajas</h3>
+        <ul>
+          @for (item of data().pros; track $index) {
+            <li [innerHTML]="item"></li>
+          }
+        </ul>
+      </div>
+      <div class="pc-col pc-cons">
+        <h3><span class="pc-badge pc-badge-bad" aria-hidden="true">−</span> Desventajas</h3>
+        <ul>
+          @for (item of data().cons; track $index) {
+            <li [innerHTML]="item"></li>
+          }
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

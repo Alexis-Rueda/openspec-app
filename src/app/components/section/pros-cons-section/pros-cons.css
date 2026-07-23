@@ -1,0 +1,129 @@
+:host {
+  display: block;
+}
+
+.section-head {
+  text-align: center;
+  margin-bottom: 52px;
+}
+
+.pc-eyebrow {
+  display: inline-block;
+  font-family: var(--os-font-mono);
+  font-size: 0.82rem;
+  color: var(--os-accent);
+  background: color-mix(in srgb, var(--os-accent) 12%, transparent);
+  border: 1px solid color-mix(in srgb, var(--os-accent) 30%, transparent);
+  padding: 6px 16px;
+  border-radius: 999px;
+  margin-bottom: 16px;
+}
+
+.pc-title {
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  margin: 0 0 16px;
+  color: var(--os-fg);
+}
+
+.pc-lead {
+  font-size: 1.1rem;
+  color: var(--os-fg-muted);
+  max-width: 68ch;
+  margin: 0 auto;
+  text-wrap: pretty;
+}
+
+.pros-cons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.pc-col h3 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin: 0 0 16px;
+  color: var(--os-fg);
+}
+
+.pc-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  font-size: 1.1rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.pc-badge-good {
+  background: color-mix(in srgb, var(--os-accent) 15%, transparent);
+  color: var(--os-accent);
+}
+
+.pc-badge-bad {
+  background: color-mix(in srgb, var(--os-danger) 15%, transparent);
+  color: var(--os-danger);
+}
+
+.pc-col ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.pc-col li {
+  padding: 14px 18px;
+  background: var(--os-surface);
+  border: 1px solid var(--os-border);
+  border-radius: var(--os-radius);
+  font-size: 0.92rem;
+  color: var(--os-fg);
+  line-height: 1.5;
+}
+
+.pc-col li code {
+  font-family: var(--os-font-mono);
+  font-size: 0.85em;
+  background: color-mix(in srgb, var(--os-accent) 10%, transparent);
+  color: var(--os-accent);
+  padding: 1px 5px;
+  border-radius: 4px;
+}
+
+.pc-col li strong {
+  font-weight: 600;
+  color: var(--os-fg);
+}
+
+@media (max-width: 768px) {
+  .pros-cons {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .section-head {
+    margin-bottom: 36px;
+  }
+
+  .pc-title {
+    font-size: 1.8rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pc-col li {
+    transition: none;
+  }
+}

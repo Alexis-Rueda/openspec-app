@@ -3,10 +3,12 @@ import { NavLink } from '../interfaces/nav-link.interface';
 import { HeroData } from '../interfaces/hero-data.interface';
 import { ConceptData } from '../interfaces/card-data.interface';
 import { WorkflowData } from '../interfaces/workflow-step.interface';
+import { ProsConsData } from '../interfaces/pros-cons-data.interface';
 import navigationData from '../data/navigation.json';
 import heroData from '../data/hero.json';
 import conceptData from '../data/concept.json';
 import workflowData from '../data/workflow-steps.json';
+import prosConsData from '../data/pros-cons.json';
 
 @Injectable({ providedIn: 'root' })
 export class ContentService {
@@ -24,5 +26,9 @@ export class ContentService {
 
   getWorkflowSteps(): Signal<WorkflowData> {
     return signal(workflowData as WorkflowData);
+  }
+
+  getProsCons(): Signal<ProsConsData> {
+    return signal(prosConsData as ProsConsData);
   }
 }

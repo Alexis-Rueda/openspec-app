@@ -1,0 +1,21 @@
+{
+  "eyebrow": "03 · Balance",
+  "title": "Ventajas y desventajas",
+  "lead": "Ninguna metodología es gratis. Esto es lo que ganas y lo que cuesta al adoptar OpenSpec.",
+  "pros": [
+    "Intención acordada <strong>antes</strong> de escribir código.",
+    "Menos alucinaciones: la IA trabaja contra una spec concreta.",
+    "Historial revisable de decisiones en control de versiones.",
+    "Onboarding más rápido: las specs documentan el sistema.",
+    "Salida <code>--json</code> para automatizar en CI/CD.",
+    "Independiente del asistente (Claude, Cursor, Copilot…)."
+  ],
+  "cons": [
+    "Curva de aprendizaje y disciplina inicial de proceso.",
+    "Overhead para cambios triviales o prototipos rápidos.",
+    "Las specs desactualizadas engañan si no ejecutas <code>sync</code>.",
+    "Requiere un asistente de IA compatible para brillar.",
+    "Herramienta joven: API y comandos aún evolucionan.",
+    "Otro artefacto más que mantener en el repositorio."
+  ]
+}
