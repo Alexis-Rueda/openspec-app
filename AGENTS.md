@@ -59,7 +59,8 @@ App Angular que funciona como guía interactiva de OpenSpec. Se construye usando
 - Keep components small and focused on a single responsibility
 - Use `input()` and `output()` functions instead of decorators
 - Use `computed()` for derived state
-- Prefer inline templates for small components
+- Use inline template for 3 lines or fewer; create `.component.html` for larger templates
+- Use inline styles for 3 lines or fewer; create `.component.css` for larger styles
 - Prefer Signal Forms (`@angular/forms/signals`) for new forms. They are stable in Angular v22+ and provide signal-based state, type-safe field access, and schema-based validation
 - When not using Signal Forms, prefer Reactive forms instead of Template-driven ones
 - Do NOT use `ngClass`, use `class` bindings instead
