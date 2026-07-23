@@ -14,9 +14,9 @@ Secuencia de cambios planificados para construir la guía interactiva de OpenSpe
 ## Changes
 
 ```
-   1. ── [x] scaffold-base (COMPLETADO ✓)
-   2. ── [] hero-section + terminal
-   3. ── [] concept-section + card
+   1. ── [x] scaffold-base
+   2. ── [X] hero-section + terminal
+   3. ── [X] concept-section + card
    4. ── [] flow-section
    5. ── [] pros-cons-section
    6. ── [] commands-section

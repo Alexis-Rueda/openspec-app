@@ -13,7 +13,7 @@ App Angular que funciona como guía interactiva de OpenSpec. Se construye usando
 
 ### Git Workflow
 
-- **Al hacer apply de un change OpenSpec, crear siempre una nueva rama git** antes de implementar:
+- **Al hacer apply de un change OpenSpec o skill spec-impl, crear siempre una nueva rama git** antes de implementar:
   ```bash
   git checkout -b <nombre-del-change>
   ```
