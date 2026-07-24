@@ -1,0 +1,9 @@
+{
+  "eyebrow": "05 · Instalación",
+  "title": "¿Listo para empezar?",
+  "command": "npm install -g @fission-ai/openspec@latest",
+  "link": {
+    "label": "Ver documentación",
+    "href": "https://openspec.dev"
+  }
+}

@@ -5,12 +5,14 @@ import { ConceptData } from '../interfaces/card-data.interface';
 import { WorkflowData } from '../interfaces/workflow-step.interface';
 import { ProsConsData } from '../interfaces/pros-cons-data.interface';
 import { CommandsData } from '../interfaces/command-item.interface';
+import { CtaData } from '../interfaces/cta-data.interface';
 import navigationData from '../data/navigation.json';
 import heroData from '../data/hero.json';
 import conceptData from '../data/concept.json';
 import workflowData from '../data/workflow-steps.json';
 import prosConsData from '../data/pros-cons.json';
 import commandsData from '../data/commands.json';
+import ctaData from '../data/cta.json';
 
 @Injectable({ providedIn: 'root' })
 export class ContentService {
@@ -36,5 +38,9 @@ export class ContentService {
 
   getCommands(): Signal<CommandsData> {
     return signal(commandsData as CommandsData);
+  }
+
+  getCta(): Signal<CtaData> {
+    return signal(ctaData as CtaData);
   }
 }

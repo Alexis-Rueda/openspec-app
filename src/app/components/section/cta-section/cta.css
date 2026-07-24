@@ -1,0 +1,104 @@
+:host {
+  display: block;
+}
+
+.cta-eyebrow {
+  display: inline-block;
+  font-family: var(--os-font-mono);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--os-accent);
+  background: color-mix(in srgb, var(--os-accent) 12%, transparent);
+  padding: 5px 14px;
+  border-radius: 999px;
+  margin-bottom: 14px;
+}
+
+.cta-title {
+  font-size: clamp(1.6rem, 4vw, 2.2rem);
+  font-weight: 700;
+  line-height: 1.15;
+  margin: 0 0 24px;
+}
+
+.section-head {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.cta-command-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background: var(--os-surface);
+  border: 1px solid var(--os-border);
+  border-radius: 12px;
+  padding: 16px 20px;
+  max-width: 600px;
+  margin: 0 auto 24px;
+}
+
+.cta-command {
+  font-family: var(--os-font-mono);
+  font-size: 0.92rem;
+  color: var(--os-accent);
+  word-break: break-word;
+  flex: 1;
+}
+
+.cta-copy {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  border: 1px solid var(--os-border);
+  background: var(--os-surface);
+  color: var(--os-fg-muted);
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.cta-copy:hover {
+  border-color: var(--os-accent);
+  color: var(--os-accent);
+}
+
+.cta-copy:focus-visible {
+  outline: 2px solid var(--os-accent);
+  outline-offset: 2px;
+}
+
+.cta-link {
+  display: inline-block;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--os-accent);
+  text-decoration: none;
+  text-align: center;
+  width: 100%;
+}
+
+.cta-link:hover {
+  text-decoration: underline;
+}
+
+.cta-link:focus-visible {
+  outline: 2px solid var(--os-accent);
+  outline-offset: 2px;
+}
+
+@media (max-width: 620px) {
+  .cta-command-box {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .cta-copy {
+    align-self: flex-end;
+  }
+}
