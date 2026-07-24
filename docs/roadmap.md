@@ -171,6 +171,7 @@ Corrige problemas de navegación, interacción y apariencia en la app.
 3. **Hero buttons**: Los botones "Ver el flujo" (`#flujo`) y "Comandos útiles" (`#comandos`) deben hacer scroll suave a sus secciones. Verificar que los IDs existan en el DOM.
 4. **Theme toggle**: Verificar que `applyThemeEffect()` se inicialice al arrancar la app. El botón ya llama a `toggleTheme()`.
 5. **Footer**: Actualizar texto a "Página informativa no oficial. Hecha por Alexis Rueda para el equipo de Evertec México."
+6. **Concept cards**: Asegurar que las cards en `concept-section` tengan el mismo alto. Usar `align-items: stretch` en el grid y/o `height: 100%` / `flex: 1` en el componente `card`.
 
 **Archivos a modificar**:
 - `src/app/components/shared/header/header.html` — links de navegación
@@ -181,3 +182,4 @@ Corrige problemas de navegación, interacción y apariencia en la app.
 - `src/app/data/navigation.json` — cambiar rutas a hash links
 - `src/app/utils/theme.ts` — verificar inicialización
 - `src/app/app.component.ts` — llamar `applyThemeEffect()` en init
+- `src/app/components/shared/card/card.css` — ajustar alto de cards
