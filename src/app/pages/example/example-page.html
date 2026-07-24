@@ -1,0 +1,53 @@
+<section class="os-example">
+  <header class="os-example-header">
+    <h2 class="os-example-title">{{ title() }}</h2>
+    <p class="os-example-lead">{{ lead() }}</p>
+  </header>
+
+  <nav class="os-stepper" role="tablist" aria-label="Pasos del flujo OpenSpec">
+    @for (step of steps(); track step.title; let i = $index) {
+      <button
+        class="os-stepper-step"
+        [class.os-stepper-step--active]="activeStep() === i"
+        [class.os-stepper-step--done]="activeStep() > i"
+        role="tab"
+        [attr.aria-selected]="activeStep() === i"
+        [attr.aria-label]="'Paso ' + (i + 1) + ': ' + step.title"
+        (click)="goToStep(i)"
+      >
+        <span class="os-stepper-number">{{ i + 1 }}</span>
+        <span class="os-stepper-label">{{ step.title }}</span>
+      </button>
+      @if (i < steps().length - 1) {
+        <span class="os-stepper-line" [class.os-stepper-line--done]="activeStep() > i" aria-hidden="true"></span>
+      }
+    }
+  </nav>
+
+  <div class="os-example-content">
+    <h3 class="os-example-step-title">{{ currentStep().title }}</h3>
+    <p class="os-example-step-desc">{{ currentStep().description }}</p>
+
+    <app-terminal
+      [title]="currentStep().command"
+      [lines]="currentStep().terminalLines"
+    />
+  </div>
+
+  <footer class="os-example-nav">
+    <button
+      class="os-btn os-btn-ghost"
+      [disabled]="isFirst()"
+      (click)="prev()"
+    >
+      Anterior
+    </button>
+    <button
+      class="os-btn os-btn-primary"
+      [disabled]="isLast()"
+      (click)="next()"
+    >
+      Siguiente
+    </button>
+  </footer>
+</section>

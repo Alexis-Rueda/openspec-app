@@ -20,7 +20,7 @@ Secuencia de cambios planificados para construir la guía interactiva de OpenSpe
    4. ── [X] flow-section
    5. ── [X] pros-cons-section
    6. ── [X] commands-section
-   7. ── [] example-page (lazy route)
+   7. ── [X] example-page (lazy route)
    8. ── [X] cta-section + clipboard
    9. ── [] ui-fixes (header, navbar, hero, theme, footer)
 ```

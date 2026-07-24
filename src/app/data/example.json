@@ -1,0 +1,75 @@
+{
+  "title": "Ejemplo del Flujo OpenSpec",
+  "lead": "Sigue estos 5 pasos para implementar una feature usando OpenSpec, desde la exploración hasta el archivado.",
+  "steps": [
+    {
+      "command": "/opsx:explore add authentication system",
+      "title": "Explore",
+      "description": "Investiga y clarifica el problema antes de planificar. Crea un change con un nombre descriptivo.",
+      "terminalLines": [
+        { "text": "$ <span class='c-prompt'>/opsx:explore add authentication system</span>", "classes": ["c-prompt"] },
+        { "text": "" },
+        { "text": "<span class='c-ok'>✓</span> Change created: add-auth-system", "classes": ["c-ok"] },
+        { "text": "<span class='c-muted'>  State: exploring</span>", "classes": ["c-muted"] },
+        { "text": "" },
+        { "text": "<span class='c-muted'>Next: /opsx:propose add-auth-system</span>", "classes": ["c-muted"] }
+      ]
+    },
+    {
+      "command": "/opsx:propose add-auth-system",
+      "title": "Propose",
+      "description": "Genera proposal, specs, design y tasks de forma automática basándose en la exploración.",
+      "terminalLines": [
+        { "text": "$ <span class='c-prompt'>/opsx:propose add-auth-system</span>", "classes": ["c-prompt"] },
+        { "text": "" },
+        { "text": "<span class='c-ok'>✓</span> Proposal generated", "classes": ["c-ok"] },
+        { "text": "<span class='c-ok'>✓</span> Specs written", "classes": ["c-ok"] },
+        { "text": "<span class='c-ok'>✓</span> Design documented", "classes": ["c-ok"] },
+        { "text": "<span class='c-ok'>✓</span> Tasks breakdown created", "classes": ["c-ok"] },
+        { "text": "" },
+        { "text": "<span class='c-muted'>Next: /opsx:apply add-auth-system</span>", "classes": ["c-muted"] }
+      ]
+    },
+    {
+      "command": "/opsx:apply add-auth-system",
+      "title": "Apply",
+      "description": "Implementa el código siguiendo las tasks. Cada task se marca completa al terminar.",
+      "terminalLines": [
+        { "text": "$ <span class='c-prompt'>/opsx:apply add-auth-system</span>", "classes": ["c-prompt"] },
+        { "text": "" },
+        { "text": "<span class='c-muted'>Implementing task 1/5: Create auth module</span>", "classes": ["c-muted"] },
+        { "text": "<span class='c-ok'>✓</span> Task complete", "classes": ["c-ok"] },
+        { "text": "<span class='c-muted'>Implementing task 2/5: Add login component</span>", "classes": ["c-muted"] },
+        { "text": "<span class='c-ok'>✓</span> Task complete", "classes": ["c-ok"] },
+        { "text": "" },
+        { "text": "<span class='c-muted'>Progress: 2/5 tasks complete</span>", "classes": ["c-muted"] }
+      ]
+    },
+    {
+      "command": "/opsx:sync add-auth-system",
+      "title": "Sync",
+      "description": "Sincroniza los delta specs del change a los specs principales del proyecto.",
+      "terminalLines": [
+        { "text": "$ <span class='c-prompt'>/opsx:sync add-auth-system</span>", "classes": ["c-prompt"] },
+        { "text": "" },
+        { "text": "<span class='c-ok'>✓</span> Delta specs synced to main specs", "classes": ["c-ok"] },
+        { "text": "<span class='c-muted'>  auth-system/spec.md → specs/auth-system/spec.md</span>", "classes": ["c-muted"] },
+        { "text": "" },
+        { "text": "<span class='c-muted'>Next: /opsx:archive add-auth-system</span>", "classes": ["c-muted"] }
+      ]
+    },
+    {
+      "command": "/opsx:archive add-auth-system",
+      "title": "Archive",
+      "description": "Archiva el change completado. Limpia el directorio de changes y actualiza el historial.",
+      "terminalLines": [
+        { "text": "$ <span class='c-prompt'>/opsx:archive add-auth-system</span>", "classes": ["c-prompt"] },
+        { "text": "" },
+        { "text": "<span class='c-ok'>✓</span> Change archived successfully", "classes": ["c-ok"] },
+        { "text": "<span class='c-muted'>  Moved to: openspec/archive/add-auth-system/</span>", "classes": ["c-muted"] },
+        { "text": "" },
+        { "text": "<span class='c-path'>Done! The feature is now part of the project.</span>", "classes": ["c-path"] }
+      ]
+    }
+  ]
+}
