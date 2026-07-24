@@ -6,9 +6,13 @@
       "command": ["npx", "-y", "@angular/cli", "mcp"],
       "enabled": true
     },
-"playwright": {
-  "type": "local",
-  "command": ["npx", "@playwright/mcp@latest", "--screenshot-dir=.playwright-screenshots"]
-}
+    "playwright": {
+      "type": "local",
+      "command": [
+        "npx",
+        "@playwright/mcp@latest",
+        "--screenshot-dir=.playwright-screenshots"
+      ]
+    }
   }
 }
