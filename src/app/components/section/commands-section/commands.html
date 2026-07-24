@@ -1,0 +1,34 @@
+<section id="comandos" class="os-section os-section-alt">
+  <div class="os-container">
+    <div class="section-head">
+      <span class="cmd-eyebrow">{{ data().eyebrow }}</span>
+      <h2 class="cmd-title os-text-balance">{{ data().title }}</h2>
+      <p class="cmd-lead os-text-pretty" [innerHTML]="data().lead"></p>
+    </div>
+
+    <div class="os-tabs" role="tablist" aria-label="Tipos de comandos">
+      @for (tab of tabs; track tab.filter) {
+        <button
+          class="os-tab"
+          [class.is-active]="activeFilter() === tab.filter"
+          role="tab"
+          [attr.aria-selected]="activeFilter() === tab.filter"
+          (click)="setFilter(tab.filter)">
+          {{ tab.label }}
+        </button>
+      }
+    </div>
+
+    <div class="os-cmd-list">
+      @for (cmd of filteredCommands(); track cmd.cmd) {
+        <div class="os-cmd">
+          <span class="os-cmd-code">{{ cmd.cmd }}</span>
+          <span class="os-cmd-desc">{{ cmd.desc }}</span>
+          <span class="os-cmd-badge" [class]="'os-cmd-badge--' + cmd.type">
+            {{ cmd.type === 'cli' ? 'terminal' : 'chat' }}
+          </span>
+        </div>
+      }
+    </div>
+  </div>
+</section>

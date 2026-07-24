@@ -1,0 +1,77 @@
+{
+  "eyebrow": "04 · Comandos",
+  "title": "Comandos útiles",
+  "lead": "Filtra por superficie. Los comandos de <strong>terminal</strong> gestionan el proyecto; los de <strong>chat</strong> se escriben en tu asistente de IA.",
+  "commands": [
+    {
+      "cmd": "openspec init",
+      "desc": "Inicializa la carpeta openspec/ y configura tu asistente de IA.",
+      "type": "cli"
+    },
+    {
+      "cmd": "openspec list",
+      "desc": "Lista los cambios activos del proyecto y su estado.",
+      "type": "cli"
+    },
+    {
+      "cmd": "openspec show <cambio>",
+      "desc": "Muestra el detalle de una propuesta o spec concreta.",
+      "type": "cli"
+    },
+    {
+      "cmd": "openspec status",
+      "desc": "Resumen del estado: cambios, specs y validaciones.",
+      "type": "cli"
+    },
+    {
+      "cmd": "openspec update",
+      "desc": "Regenera la configuración de IA tras cambiar el perfil o actualizar el CLI.",
+      "type": "cli"
+    },
+    {
+      "cmd": "openspec config profile",
+      "desc": "Cambia el perfil/flujo (habilita el workflow expandido).",
+      "type": "cli"
+    },
+    {
+      "cmd": "openspec list --json",
+      "desc": "Salida en JSON para integrar con agentes, scripts o CI.",
+      "type": "cli"
+    },
+    {
+      "cmd": "/opsx:explore",
+      "desc": "Refina requisitos y explora el problema antes de proponer.",
+      "type": "chat"
+    },
+    {
+      "cmd": "/opsx:propose",
+      "desc": "Crea una propuesta de cambio a partir de tu intención.",
+      "type": "chat"
+    },
+    {
+      "cmd": "/opsx:apply",
+      "desc": "Implementa el código siguiendo la propuesta aprobada.",
+      "type": "chat"
+    },
+    {
+      "cmd": "/opsx:sync",
+      "desc": "Reconcilia las specs con lo que realmente se construyó.",
+      "type": "chat"
+    },
+    {
+      "cmd": "/opsx:archive",
+      "desc": "Archiva el cambio y fija las specs como nuevo estado base.",
+      "type": "chat"
+    },
+    {
+      "cmd": "/opsx:continue",
+      "desc": "Crea artefactos de forma incremental (flujo expandido).",
+      "type": "chat"
+    },
+    {
+      "cmd": "/opsx:ff",
+      "desc": "Fast-forward cuando el alcance ya está claro (flujo expandido).",
+      "type": "chat"
+    }
+  ]
+}

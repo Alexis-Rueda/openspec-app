@@ -19,7 +19,7 @@ Secuencia de cambios planificados para construir la guía interactiva de OpenSpe
    3. ── [X] concept-section + card
    4. ── [X] flow-section
    5. ── [X] pros-cons-section
-   6. ── [] commands-section
+   6. ── [X] commands-section
    7. ── [] example-page (lazy route)
    8. ── [] cta-section + clipboard
 ```
