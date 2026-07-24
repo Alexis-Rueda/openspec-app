@@ -21,7 +21,8 @@ Secuencia de cambios planificados para construir la guía interactiva de OpenSpe
    5. ── [X] pros-cons-section
    6. ── [X] commands-section
    7. ── [] example-page (lazy route)
-   8. ── [] cta-section + clipboard
+   8. ── [X] cta-section + clipboard
+   9. ── [] ui-fixes (header, navbar, hero, theme, footer)
 ```
 
 ### ✅ 1. `scaffold-base` — Estructura base (COMPLETADO)
@@ -29,6 +30,8 @@ Secuencia de cambios planificados para construir la guía interactiva de OpenSpe
 **Artefactos**: proposal · design · specs · tasks
 
 Crea toda la estructura vacía: layouts, routing, header, footer, theme system, content service, interfaces base, navigation data.
+
+**Footer**: Texto actual → "Página informativa no oficial. Hecha por Alexis Rueda para el equipo de Evertec México." + enlace "Volver arriba".
 
 **Archivos creados**:
 - `src/styles.css` — design tokens prefijados `.os-*`
@@ -79,12 +82,19 @@ Añade `concept-section`, `card` (shared), `concept.json`, `card-data.interface.
 
 **Depende de**: scaffold-base
 
-Añade `flow-section`, `flow.json`, `flow-step.interface.ts`, método `getFlow()`.
+Añade `flow-section`, `workflow-steps.json`, `flow-step.interface.ts`, método `getFlow()`.
+
+**Orden del flujo** (5 pasos):
+1. `/opsx:explore` — Explore
+2. `/opsx:propose` — Propose
+3. `/opsx:apply` — Apply
+4. `/opsx:sync` — Sync
+5. `/opsx:archive` — Archive
 
 **Archivos nuevos**:
 - `src/app/components/section/flow-section/`
 - `src/app/interfaces/flow-step.interface.ts`
-- `src/app/data/flow.json`
+- `src/app/data/workflow-steps.json`
 
 ---
 
@@ -120,6 +130,13 @@ Añade `commands-section` con tabs de filtro y lista dinámica de comandos. `com
 
 Migra `example-section` de ser un componente en home-page a una página lazy con ruta `/example`. Incluye el paso a paso interactivo con terminal dinámico.
 
+**Flujo del ejemplo** (comienza con explore):
+1. `/opsx:explore` — Explore (definir requisitos)
+2. `/opsx:propose` — Propose
+3. `/opsx:apply` — Apply
+4. `/opsx:sync` — Sync
+5. `/opsx:archive` — Archive
+
 **Archivos nuevos**:
 - `src/app/pages/example/` — lazy loaded page
 - `src/app/interfaces/example-step.interface.ts`
@@ -139,3 +156,28 @@ Añade `cta-section` con comando de instalación y botón copiar. `clipboard.ts`
 - `src/app/utils/clipboard.ts`
 - `src/app/interfaces/cta-data.interface.ts`
 - `src/app/data/cta.json`
+
+---
+
+### ⬜ 9. `ui-fixes` — Correcciones de UX y navegación
+
+**Depende de**: scaffold-base, hero-section, flow-section, commands-section
+
+Corrige problemas de navegación, interacción y apariencia en la app.
+
+**Tareas**:
+1. **Header sticky**: Verificar que `position: sticky` funcione correctamente (revisar overflow de parents). Asegurar que el header se mantenga visible al hacer scroll.
+2. **Navbar links**: Cambiar `routerLink` a hash links (`#que-es`, `#flujo`, `#ventajas`, `#comandos`) con scroll suave. Los links actuales apuntan a rutas que no existen.
+3. **Hero buttons**: Los botones "Ver el flujo" (`#flujo`) y "Comandos útiles" (`#comandos`) deben hacer scroll suave a sus secciones. Verificar que los IDs existan en el DOM.
+4. **Theme toggle**: Verificar que `applyThemeEffect()` se inicialice al arrancar la app. El botón ya llama a `toggleTheme()`.
+5. **Footer**: Actualizar texto a "Página informativa no oficial. Hecha por Alexis Rueda para el equipo de Evertec México."
+
+**Archivos a modificar**:
+- `src/app/components/shared/header/header.html` — links de navegación
+- `src/app/components/shared/header/header.ts` — lógica de scroll
+- `src/app/components/shared/footer/footer.html` — texto del footer
+- `src/app/components/section/hero-section/hero.html` — botones CTA
+- `src/app/components/section/flow-section/flow.html` — agregar `id="flujo"`
+- `src/app/data/navigation.json` — cambiar rutas a hash links
+- `src/app/utils/theme.ts` — verificar inicialización
+- `src/app/app.component.ts` — llamar `applyThemeEffect()` en init
