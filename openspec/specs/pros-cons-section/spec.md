@@ -18,10 +18,10 @@ The system SHALL render a full-width section with two-column layout: pros (venta
 - **AND** a lead paragraph describing the trade-offs SHALL be visible
 - **AND** two columns SHALL render side by side: "Ventajas" with green badge and "Desventajas" with red badge
 
-#### Scenario: Section uses alternating background
+#### Scenario: Section uses normal background
 
 - **WHEN** ProsConsSection renders
-- **THEN** the outer element SHALL have class `os-section os-section-alt`
+- **THEN** the outer element SHALL have class `os-section` (without `os-section-alt`)
 
 ### Requirement: Content comes from ContentService
 
