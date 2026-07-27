@@ -1,7 +1,7 @@
 ## ADDED Requirements
 
 ### Requirement: Navigation links SHALL use hash links for same-page sections
-The header navigation links for sections within the home page SHALL use hash links (`#id`) instead of router routes. Links to other pages (like `/example`) SHALL continue using router routes.
+The header navigation links for sections within the home page SHALL use hash links (`#id`) instead of router routes. Links to other pages (like `/example`) SHALL continue using router routes. Hash links SHALL use manual `scrollToSection()` with `scrollIntoView({ behavior: 'smooth' })` to avoid Angular router interception.
 
 #### Scenario: User clicks navigation link to section
 - **WHEN** user clicks "Qué es" link in header
@@ -38,7 +38,7 @@ The footer SHALL display the text "Página informativa no oficial. Hecha por Ale
 - **THEN** page scrolls to top
 
 ### Requirement: Concept cards SHALL have equal height
-Cards in the concept section SHALL have equal height when displayed in the grid on desktop viewports.
+Cards in the concept section SHALL have equal height when displayed in the grid on desktop viewports. The `<app-card>` host element SHALL use `display: flex; flex-direction: column` and `.os-card` SHALL use `flex: 1` to fill available height.
 
 #### Scenario: Desktop grid alignment
 - **WHEN** viewport width is greater than 900px
@@ -49,3 +49,18 @@ Cards in the concept section SHALL have equal height when displayed in the grid 
 - **WHEN** viewport width is 900px or less
 - **AND** concept cards are rendered
 - **THEN** cards stack vertically with individual heights
+
+### Requirement: Header SHALL remain sticky with visual scroll feedback
+The header SHALL use `position: sticky; top: 0` and SHALL display a visual change (opaque background + shadow) when the user scrolls past 10px. The `<app-header>` host SHALL use `display: contents` to ensure sticky positioning works correctly within the Angular flex layout.
+
+#### Scenario: Header sticks to top on scroll
+- **WHEN** user scrolls down the page
+- **THEN** header remains fixed at the top of the viewport
+
+#### Scenario: Header visual feedback on scroll
+- **WHEN** user scrolls past 10px
+- **THEN** header background becomes opaque and gains a subtle shadow
+
+#### Scenario: Header returns to transparent on scroll to top
+- **WHEN** user scrolls back to the top of the page
+- **THEN** header returns to its default transparent background

@@ -148,6 +148,11 @@ body {
   background: color-mix(in srgb, var(--os-bg) 82%, transparent);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--os-border);
+  transition: background 0.2s ease, box-shadow 0.2s ease;
+}
+.os-header.is-scrolled {
+  background: color-mix(in srgb, var(--os-bg) 95%, transparent);
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.15);
 }
 .os-header-inner {
   display: flex;

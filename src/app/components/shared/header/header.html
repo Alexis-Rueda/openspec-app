@@ -1,4 +1,4 @@
-<header class="os-header">
+<header class="os-header" [class.is-scrolled]="isScrolled()">
   <div class="os-container os-header-inner">
     <a class="os-brand" routerLink="/">
       <span class="os-brand-mark">&lt;/&gt;</span>
@@ -6,7 +6,11 @@
     </a>
     <nav class="os-nav">
       @for (link of navLinks(); track link.href) {
-        <a [routerLink]="link.href">{{ link.label }}</a>
+        @if (link.href.startsWith('#')) {
+          <a [href]="link.href" (click)="scrollToSection($event, link.href)">{{ link.label }}</a>
+        } @else {
+          <a [routerLink]="link.href">{{ link.label }}</a>
+        }
       }
     </nav>
     <div class="os-header-actions">
@@ -26,7 +30,11 @@
   @if (isMobileNavOpen()) {
     <div class="os-mobile-nav">
       @for (link of navLinks(); track link.href) {
-        <a [routerLink]="link.href" (click)="closeMobileNav()">{{ link.label }}</a>
+        @if (link.href.startsWith('#')) {
+          <a [href]="link.href" (click)="scrollToSection($event, link.href)">{{ link.label }}</a>
+        } @else {
+          <a [routerLink]="link.href" (click)="closeMobileNav()">{{ link.label }}</a>
+        }
       }
     </div>
   }
