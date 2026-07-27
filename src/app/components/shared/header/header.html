@@ -5,10 +5,13 @@
       <span class="os-brand-name">OpenSpec</span>
     </a>
     <nav class="os-nav">
+      @if (!isHomeRoute()) {
+        <a routerLink="/home">Inicio</a>
+      }
       @for (link of navLinks(); track link.href) {
-        @if (link.href.startsWith('#')) {
+        @if (isHomeRoute() && link.href.startsWith('#')) {
           <a [href]="link.href" (click)="scrollToSection($event, link.href)">{{ link.label }}</a>
-        } @else {
+        } @else if (!link.href.startsWith('#')) {
           <a [routerLink]="link.href">{{ link.label }}</a>
         }
       }
@@ -29,10 +32,13 @@
   </div>
   @if (isMobileNavOpen()) {
     <div class="os-mobile-nav">
+      @if (!isHomeRoute()) {
+        <a routerLink="/home" (click)="closeMobileNav()">Inicio</a>
+      }
       @for (link of navLinks(); track link.href) {
-        @if (link.href.startsWith('#')) {
+        @if (isHomeRoute() && link.href.startsWith('#')) {
           <a [href]="link.href" (click)="scrollToSection($event, link.href)">{{ link.label }}</a>
-        } @else {
+        } @else if (!link.href.startsWith('#')) {
           <a [routerLink]="link.href" (click)="closeMobileNav()">{{ link.label }}</a>
         }
       }

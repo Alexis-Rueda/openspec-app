@@ -8,6 +8,7 @@
         @for (btn of hero().ctaButtons; track $index) {
           <a
             [href]="btn.href"
+            (click)="scrollToSection($event, btn.href)"
             [class.os-btn-primary]="$index === 0"
             [class.os-btn-ghost]="$index !== 0"
             class="os-btn"

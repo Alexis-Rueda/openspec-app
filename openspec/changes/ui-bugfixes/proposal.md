@@ -4,7 +4,7 @@ Tres bugs de UI afectan la experiencia de usuario: el botón de tema no alterna 
 
 ## What Changes
 
-- Corregir el toggle del tema: el `effect()` en `applyThemeEffect()` no se suscribe correctamente al signal porque se ejecuta fuera del injection context
+- Corregir el toggle del tema: el `effect()` se mueve al constructor de `App` (injection context válido), se lee `sessionStorage` sincrónicamente para inicializar el signal, y se guarda la preferencia en `sessionStorage`
 - Agregar scroll suave a los botones del hero section: los `<a>` con hash links ejecutan la acción por defecto del navegador sin `preventDefault()`
 - Adaptar navegación para la página de example: los links hash no funcionan fuera de home, se necesita detectar la ruta y mostrar solo "Inicio" cuando no estás en home
 

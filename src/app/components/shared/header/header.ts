@@ -1,5 +1,7 @@
-import { Component, inject, signal, afterNextRender, DestroyRef } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Component, inject, signal, computed, afterNextRender, DestroyRef } from '@angular/core';
+import { Router, NavigationEnd, RouterLink } from '@angular/router';
+import { toSignal } from '@angular/core/rxjs-interop';
+import { filter, map } from 'rxjs';
 import { ContentService } from '../../../services/content.service';
 import { theme, toggleTheme } from '../../../utils/theme';
 
@@ -14,11 +16,23 @@ import { theme, toggleTheme } from '../../../utils/theme';
 export class Header {
   private contentService = inject(ContentService);
   private destroyRef = inject(DestroyRef);
+  private router = inject(Router);
   protected readonly navLinks = this.contentService.getNavigation();
   protected readonly theme = theme;
   protected readonly toggleTheme = toggleTheme;
   protected readonly isMobileNavOpen = signal(false);
   protected readonly isScrolled = signal(false);
+  private readonly currentUrl = toSignal(
+    this.router.events.pipe(
+      filter((e): e is NavigationEnd => e instanceof NavigationEnd),
+      map((e) => e.urlAfterRedirects || e.url),
+    ),
+    { initialValue: this.router.url },
+  );
+  protected readonly isHomeRoute = computed(() => {
+    const url = this.currentUrl();
+    return url === '/' || url === '/home';
+  });
 
   constructor() {
     afterNextRender(() => {
