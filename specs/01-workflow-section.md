@@ -1,6 +1,6 @@
 # SPEC 01 — Workflow section (flow-section)
 
-> **Status:** Approved
+> **Status:** Implemented
 > **Depends on:** scaffold-base
 > **Date:** 2026-07-23
 > **Objective:** Añadir la sección "El flujo de trabajo" con los 4 pasos del workflow OpenSpec (propose → apply → sync → archive) presentados en cards con badge numérico y flechas conectoras.
