@@ -33,30 +33,24 @@ Ciclo típico: **explore → propose → apply → sync → archive**
 openspec-app/
 ├── openspec/           # Artefactos OpenSpec
 │   ├── config.yaml     # Configuración del proyecto
-│   ├── specs/          # Especificaciones principales
+│   ├── specs/          # 11 specs principales
 │   └── changes/        # Changes activos y archive
 ├── .opencode/          # Config OpenCode AI + skills
 │   ├── commands/       # Comandos opsx
-│   └── skills/         # Skills openspec-*
-├── .agents/skills/     # Skills auxiliares (13 instaladas)
-├── assets/             # Contenido fuente / referencia visual
-│   └── ... (landing page OpenSpec)
-    └── src/                # App Angular
-        └── app/
-            ├── components/     # Componentes reutilizables
-            │   ├── section/    # Secciones de contenido (hero, concept, etc.)
-            │   └── shared/     # Componentes compartidos (header, footer)
-            ├── interfaces/     # Interfaces TypeScript
-            ├── layouts/        # Layouts de página
-            ├── pages/          # Páginas (lazy-loaded)
-            ├── services/       # Servicios inyectables
-            ├── data/           # Datos estáticos JSON
-            └── utils/          # Utilidades (theme, etc.)
+│   └── skills/         # 6 skills openspec-*
+├── .agents/skills/     # 8 skills auxiliares
+├── src/
+│   └── app/
+│       ├── components/
+│       │   ├── section/    # hero, concept, flow, commands, pros-cons, cta
+│       │   └── shared/     # header, footer, card, terminal
+│       ├── interfaces/
+│       ├── layouts/
+│       ├── pages/          # Páginas (lazy-loaded)
+│       ├── services/
+│       ├── data/           # Datos estáticos JSON
+│       └── utils/          # Theme toggle, utilidades
 ```
-
-## Assets
-
-La carpeta `assets/` contiene una landing page estática sobre OpenSpec (HTML+CSS+JS + Tailwind). Sirve como **contenido fuente** y referencia de diseño para la app Angular. No está incluida en el build de Angular.
 
 ## Comandos
 
@@ -68,4 +62,6 @@ ng build        # Build producción
 
 ## Skills instaladas
 
-Angular developer, Vitest, Accessibility, SEO, Frontend Design, TypeScript advanced types, Node.js best practices, y más (ver `skills-lock.json`).
+**Desarrollo (.agents/skills/):** Angular developer, Frontend Design, Vitest, TypeScript advanced types, adev-writing-guide, reference-core, reference-compiler-cli, reference-signal-forms
+
+**OpenSpec (.opencode/skills/):** openspec-propose, openspec-apply-change, openspec-sync-specs, openspec-update-change, openspec-archive-change, openspec-explore
